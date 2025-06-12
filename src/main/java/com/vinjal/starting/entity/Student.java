@@ -7,8 +7,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@NoArgsConstructor
+// @Getter
+// @Setter
+@Data
 public class Student {
     
     @Id
@@ -23,4 +29,12 @@ public class Student {
 
     @OneToMany(mappedBy = "student")
     private List<Course> courses;
+
+    public Student(String fullName, String age, Integer rollNumber, List<Course> courses) {
+        this.fullName = fullName;
+        this.age = age;
+        this.rollNumber = rollNumber;
+        this.courses = courses;
+    }
+
 }
