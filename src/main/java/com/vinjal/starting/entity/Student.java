@@ -1,5 +1,6 @@
 package com.vinjal.starting.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -23,18 +24,18 @@ public class Student {
 
     private String fullName;
 
-    private String age;
+    private Byte age;
 
     private Integer rollNumber;
 
     @OneToMany(mappedBy = "student")
     private List<Course> courses;
 
-    public Student(String fullName, String age, Integer rollNumber, List<Course> courses) {
+    public Student(String fullName, Byte age) {
         this.fullName = fullName;
         this.age = age;
-        this.rollNumber = rollNumber;
-        this.courses = courses;
+        this.rollNumber = (int) Math.floor(Math.random() * 10000);
+        this.courses = new ArrayList<>();
     }
 
 }
