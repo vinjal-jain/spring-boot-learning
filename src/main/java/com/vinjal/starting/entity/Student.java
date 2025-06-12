@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Student {
@@ -20,5 +21,6 @@ public class Student {
 
     private Integer rollNumber;
 
-    private List
+    @OneToMany(mappedBy = "student")
+    private List<Course> courses;
 }
